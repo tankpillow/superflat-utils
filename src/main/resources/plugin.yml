@@ -1,0 +1,5 @@
+name: SuperflatRewards
+main: dev.tankpillow.superflat.SuperflatRewards
+version: 1.0
+api-version: 1.21.11
+author: tankpillow
