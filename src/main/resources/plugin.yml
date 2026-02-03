@@ -5,3 +5,11 @@ api-version: 1.21.11
 author: tankpillow
 commands:
   claim:
+    description: Claim your superflat survival reward
+    usage: /claim
+  claimstatus:
+    description: Check when you can next claim your reward
+    usage: /claimstatus
+  forceclaim:
+    description: Force a claim for a player (console only)
+    usage: /forceclaim <player>

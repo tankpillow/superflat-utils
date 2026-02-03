@@ -97,7 +97,21 @@ public class RewardManager
 
         ItemStack item = new ItemStack(reward.material, amount);
         player.getInventory().addItem(item);
-		player.sendMessage(Component.text(ChatColor.translateAlternateColorCodes('&', "&aYou recieved a superflat survival reward.")));
+		player.sendMessage(Component.text(ChatColor.translateAlternateColorCodes('&', "&a&l[SUPERFLAT] &r&aYou received a superflat survival reward: &e" + amount + "x " + formatMaterialName(reward.material) + "&a!")));
+	}
+	
+	private static String formatMaterialName(Material material) {
+		String name = material.name().toLowerCase().replace('_', ' ');
+		String[] words = name.split(" ");
+		StringBuilder formatted = new StringBuilder();
+		
+		for (int i = 0; i < words.length; i++) {
+			if (i > 0) formatted.append(" ");
+			formatted.append(Character.toUpperCase(words[i].charAt(0)));
+			formatted.append(words[i].substring(1));
+		}
+		
+		return formatted.toString();
 	}
 	
 }
