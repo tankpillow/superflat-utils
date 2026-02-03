@@ -1,17 +1,18 @@
 package dev.tankpillow.superflat;
 
-import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SuperflatRewards extends JavaPlugin
 {
 	
-	private static final long FIVE_DAYS_TICKS = 5 * 24000L;
+	public static NamespacedKey LAST_CLAIM_KEY;
 	
 	@Override
 	public void onEnable()
 	{
-		Bukkit.getScheduler().runTaskTimer(this, new RewardTask(), FIVE_DAYS_TICKS, FIVE_DAYS_TICKS);
+		LAST_CLAIM_KEY = new NamespacedKey(this, "last_claim_time");
+		this.getCommand("claim").setExecutor(new ClaimCmd());
 	}
 	
 	@Override
